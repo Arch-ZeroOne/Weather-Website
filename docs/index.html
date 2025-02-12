@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Website</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="inputs">
+        <input type="text" placeholder="Enter country name" id="country" />
+        <input
+          type="submit"
+          value="Get Weather"
+          id="btn"
+          onclick="checkBlankInputs()"
+        />
+      </section>
+      <section class="weather-card" id="main-card">
+        <section class="texts" id="card-content">
+          <!--
+          <h1>Dallas</h1>
+          <h2>45.0 F</h2>
+          <p>Humidity:83%</p>
+          <p>clear sky</p>
+          -->
+        </section>
+
+        <h1 id="emoji"></h1>
+      </section>
+    </div>
+    <script src="assets/js/scipt.js"></script>
+  </body>
+</html>

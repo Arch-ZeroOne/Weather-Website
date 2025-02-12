@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  gap: 30px;
+}
+.inputs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+.inputs input {
+  padding: 15px;
+  font-family: Hack;
+  border-radius: 10px;
+  border: none;
+  border: 1px solid black;
+  width: 60%;
+}
+#btn {
+  width: 20%;
+}
+.inputs input::placeholder {
+  text-align: center;
+}
+.inputs #btn {
+  padding: 10px;
+  font-family: Fira Code;
+}
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  height: 400px;
+  width: 400px;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  font-family: Hack;
+  justify-content: center;
+  background: linear-gradient(to bottom, #4facfe, #00f2fe);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  display: none;
+}
+.texts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+#error-message {
+  margin-top: 120px;
+  color: red;
+}
+#emoji {
+  font-size: 100px;
+}
