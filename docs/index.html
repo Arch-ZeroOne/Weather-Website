@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Website</title>
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
     <div class="wrapper">
       <section class="inputs">
-        <input type="text" placeholder="Enter country name" id="country" />
-        <input
-          type="submit"
-          value="Get Weather"
-          id="btn"
-          onclick="checkBlankInputs()"
-        />
+        <div class="box">
+          <input type="text" placeholder="Enter City Name" id="country" />
+          <i
+            class="fa-solid fa-magnifying-glass"
+            onclick="checkBlankInputs()"
+          ></i>
+        </div>
       </section>
       <section class="weather-card" id="main-card">
         <section class="texts" id="card-content">

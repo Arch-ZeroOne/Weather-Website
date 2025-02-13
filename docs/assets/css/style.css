@@ -2,6 +2,27 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background: url(../images/sky.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@font-face {
+  font-family: "action-man";
+  src: url(../fonts/local-fonts/action_man-webfont.woff) format("woff"),
+    url(../fonts/local-fonts/action_man-webfont.woff2) format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "kaushan-script";
+  src: url(../fonts/local-fonts/kaushanscript-regular-webfont.woff)
+      format("woff"),
+    url(../fonts/local-fonts/kaushanscript-regular-webfont.woff2)
+      format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
 
 .wrapper {
   width: 50%;
@@ -12,6 +33,7 @@
   flex-direction: column;
   margin-top: 50px;
   gap: 30px;
+  font-family: action-man;
 }
 .inputs {
   display: flex;
@@ -22,27 +44,65 @@
 }
 .inputs input {
   padding: 15px;
-  font-family: Hack;
-  border-radius: 10px;
   border: none;
-  border: 1px solid black;
-  width: 60%;
+  font-family: action-man;
+  outline: none;
+  width: 80%;
+  background: none;
+  font-size: 21px;
+  color: white;
 }
-#btn {
-  width: 20%;
+
+.box {
+  border: 2px solid black;
+  font-family: action-man;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  box-shadow: 0px 1px 12px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 1px 12px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 1px 12px 0px rgba(0, 0, 0, 0.75);
+}
+i {
+  border: 2px solid black;
+  padding: 15px;
+  border-radius: 40px;
+  font-size: 23px;
 }
 .inputs input::placeholder {
-  text-align: center;
+  font-family: action-man;
+  font-size: 21px;
+  color: white;
 }
 .inputs #btn {
   padding: 10px;
-  font-family: Fira Code;
+}
+h1 {
+  font-size: 50px;
+  color: black;
+  font-family: kaushan-script;
+}
+p {
+  font-family: action-man;
+  font-size: 30px;
+  color: black;
+}
+h2 {
+  color: white;
+  font-family: action-man;
+  font-size: 40px;
 }
 .weather-card {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  height: 400px;
+  height: 430px;
   width: 400px;
   align-items: center;
   gap: 10px;
@@ -54,6 +114,9 @@
   border: none;
   border-radius: 10px;
   display: none;
+  box-shadow: 0px 1px 12px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 1px 12px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 1px 12px 0px rgba(0, 0, 0, 0.75);
 }
 .texts {
   display: flex;
@@ -62,7 +125,6 @@
   align-items: center;
 }
 #error-message {
-  margin-top: 120px;
   color: red;
 }
 #emoji {

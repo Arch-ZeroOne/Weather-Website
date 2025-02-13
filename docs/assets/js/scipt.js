@@ -37,25 +37,28 @@ function displayWeatherData(convert) {
     main: { temp, humidity },
     weather: [{ id, main, description }],
   } = convert;
+
   const h1 = document.createElement("h1");
   const h2 = document.createElement("h2");
   const p1 = document.createElement("p");
   const p2 = document.createElement("p");
 
   h1.innerHTML = name;
-  h2.innerHTML = temp;
-  p1.innerHTML = `Humidity ${humidity}`;
+  h2.innerHTML = `${temp} ℃`;
+  p1.innerHTML = `Humidity: ${humidity}%`;
   p2.innerHTML = description;
 
   console.log(convert);
 
   document.getElementById("card-content").append(h1, h2, p1, p2);
   document.getElementById("main-card").style.display = "flex";
-  displayEmoji(id);
+  displayEmoji(id, country);
 }
 
 function displayEmoji(id) {
   document.getElementById(`emoji`).innerHTML = getEmoji(id);
+  country.value = "";
+  country.focus();
 }
 
 function getEmoji(id) {
