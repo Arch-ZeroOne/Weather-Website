@@ -4,8 +4,13 @@ function checkBlankInputs() {
   document.getElementById("card-content").innerHTML = "";
   document.getElementById("emoji").innerHTML = "";
   const country = document.getElementById("country").value;
+
   if (!country) {
-    cardContent.innerHTML = `<h1 id = "error-message"> No country inputed </h1>`;
+    Swal.fire({
+      title: "Error !!",
+      text: "Input field cannot be empty",
+      icon: "error",
+    });
     return;
   }
 
@@ -20,7 +25,11 @@ async function getWeatherData(country) {
     );
 
     if (!request.ok) {
-      cardContent.innerHTML = `<h1 id = "error-message"> Country not found</h1>`;
+      Swal.fire({
+        title: "Error !!",
+        text: "City name not found",
+        icon: "error",
+      });
       throw new Error();
     }
 
@@ -47,8 +56,6 @@ function displayWeatherData(convert) {
   h2.innerHTML = `${temp} ℃`;
   p1.innerHTML = `Humidity: ${humidity}%`;
   p2.innerHTML = description;
-
-  console.log(convert);
 
   document.getElementById("card-content").append(h1, h2, p1, p2);
   document.getElementById("main-card").style.display = "flex";

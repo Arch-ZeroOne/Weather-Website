@@ -6,6 +6,7 @@ body {
   background: url(../images/sky.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: Fira Code;
 }
 @font-face {
   font-family: "action-man";
