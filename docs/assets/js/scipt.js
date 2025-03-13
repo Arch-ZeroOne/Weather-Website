@@ -1,9 +1,17 @@
 const cardContent = document.getElementById("card-content");
 
+document.addEventListener("DOMContentLoaded", () => {
+  getWeatherData("Davao");
+});
+
+document.getElementById("cityName").addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    checkBlankInputs();
+  }
+});
+
 function checkBlankInputs() {
-  document.getElementById("card-content").innerHTML = "";
-  document.getElementById("emoji").innerHTML = "";
-  const country = document.getElementById("country").value;
+  const country = document.getElementById("cityName").value;
 
   if (!country) {
     Swal.fire({
@@ -34,56 +42,48 @@ async function getWeatherData(country) {
     }
 
     const convert = await request.json();
+
     displayWeatherData(convert);
   } catch (error) {
-    console.log(error);
+    console.log(error.name);
   }
-}
 
-function displayWeatherData(convert) {
-  const {
-    name,
-    main: { temp, humidity },
-    weather: [{ id, main, description }],
-  } = convert;
+  function displayWeatherData(convert) {
+    const {
+      name,
+      main: { temp, humidity, feels_like },
+      weather: [{ id, main, description }],
+      wind: { speed },
+    } = convert;
 
-  const h1 = document.createElement("h1");
-  const h2 = document.createElement("h2");
-  const p1 = document.createElement("p");
-  const p2 = document.createElement("p");
+    document.getElementById("city").innerHTML = name;
+    document.getElementById("celsius").innerHTML = `${temp}℃`;
+    document.getElementById("feel").innerHTML = `${Math.ceil(feels_like)}℃`;
+    document.getElementById("wind-status").innerHTML = `${speed}km/h`;
+    displayIcon(id, country);
+    document.getElementById("cityName").value = "";
+  }
 
-  h1.innerHTML = name;
-  h2.innerHTML = `${temp} ℃`;
-  p1.innerHTML = `Humidity: ${humidity}%`;
-  p2.innerHTML = description;
+  function displayIcon(id) {
+    document.getElementById(`icon`).src = getIcon(id);
+  }
 
-  document.getElementById("card-content").append(h1, h2, p1, p2);
-  document.getElementById("main-card").style.display = "flex";
-  displayEmoji(id, country);
-}
-
-function displayEmoji(id) {
-  document.getElementById(`emoji`).innerHTML = getEmoji(id);
-  country.value = "";
-  country.focus();
-}
-
-function getEmoji(id) {
-  switch (true) {
-    case id >= 200 && id < 300:
-      return "⛈️";
-    case id >= 300 && id < 500:
-      return "🌦️";
-    case id >= 500 && id < 600:
-      return "🌧️";
-    case id >= 600 && id < 701:
-      return "❄️";
-    case id >= 701 && id < 800:
-      return "🍃";
-    case id > 800:
-      return "☁️";
-    case id === 800:
-      console.log(id);
-      return "☀️";
+  function getIcon(id) {
+    switch (true) {
+      case id >= 200 && id < 300:
+        return "assets/images/weather-forecasts/thunderstorm.png";
+      case id >= 300 && id < 500:
+        return "assets/images/weather-forecasts/slow-rain.png";
+      case id >= 500 && id < 600:
+        return "assets/images/weather-forecasts/rain.png";
+      case id >= 600 && id < 701:
+        return "assets/images/weather-forecasts/snowy.png";
+      case id >= 701 && id < 800:
+        return "assets/images/weather-forecasts/wind.png";
+      case id > 800:
+        return "assets/images/weather-forecasts/cloudy.png";
+      case id === 800:
+        return "assets/images/weather-forecasts/sunny.png";
+    }
   }
 }
