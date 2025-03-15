@@ -2,6 +2,7 @@ const cardContent = document.getElementById("card-content");
 
 document.addEventListener("DOMContentLoaded", () => {
   getWeatherData("Davao");
+  console.log("lOADED");
 });
 
 document.getElementById("cityName").addEventListener("keypress", (event) => {
