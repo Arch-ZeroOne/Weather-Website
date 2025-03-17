@@ -2,7 +2,6 @@ const cardContent = document.getElementById("card-content");
 
 document.addEventListener("DOMContentLoaded", () => {
   getWeatherData("Davao");
-  console.log("lOADED");
 });
 
 document.getElementById("cityName").addEventListener("keypress", (event) => {
@@ -57,10 +56,16 @@ async function getWeatherData(country) {
       wind: { speed },
     } = convert;
 
+    const splitDescription = description.split("");
+    splitDescription[0] = splitDescription[0].toUpperCase();
+
     document.getElementById("city").innerHTML = name;
     document.getElementById("celsius").innerHTML = `${temp}℃`;
     document.getElementById("feel").innerHTML = `${Math.ceil(feels_like)}℃`;
     document.getElementById("wind-status").innerHTML = `${speed}km/h`;
+    document.getElementById("weather-feel").innerHTML =
+      splitDescription.join("");
+
     displayIcon(id, country);
     document.getElementById("cityName").value = "";
   }
