@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -7,8 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import * as dotenv from "dotenv";
-dotenv.config();
 const cityName = document.getElementById("cityName");
 document.addEventListener("DOMContentLoaded", () => {
     getWeatherData("Davao");
@@ -33,7 +32,7 @@ function getWeatherData(country) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             //BASE URL : https://api.openweathermap.org/data/2.5/weather?q={countryName]&units=metric
-            const api_key = process.env.API_KEY;
+            const api_key = "ff8809e4f2c4dab9e8aa2a213ded9df5";
             //https://api.openweathermap.org/data/2.5/weather?q=Davaoppid=ff8809e4f2c4dab9e8aa2a213ded9df5&units=metric
             const request = yield fetch(`https://api.openweathermap.org/data/2.5/weather?q=${country}&appid=${api_key}&units=metric`);
             const convert = yield request.json();

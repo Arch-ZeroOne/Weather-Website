@@ -1,7 +1,3 @@
-import * as dotenv from "dotenv";
-
-dotenv.config();
-
 const cityName: HTMLElement | null = document.getElementById("cityName");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,7 +29,7 @@ function checkBlankInputs() {
 async function getWeatherData(country: string) {
   try {
     //BASE URL : https://api.openweathermap.org/data/2.5/weather?q={countryName]&units=metric
-    const api_key = process.env.API_KEY;
+    const api_key = "ff8809e4f2c4dab9e8aa2a213ded9df5";
     //https://api.openweathermap.org/data/2.5/weather?q=Davaoppid=ff8809e4f2c4dab9e8aa2a213ded9df5&units=metric
 
     const request = await fetch(
